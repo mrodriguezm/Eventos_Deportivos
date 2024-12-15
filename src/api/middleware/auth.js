@@ -15,7 +15,7 @@ const checkToken = async (req, res, next) => {
             data=jwt.verify(tokenVer, process.env.SECRET_KEY_JWT);
             
         } catch (error) {
-            return res.json({msg:"el token es incorrecto"});
+            return res.status(401).json({msg:"No tienes permisos"});
         }
         
 
@@ -27,7 +27,8 @@ const checkToken = async (req, res, next) => {
         }
 
         req.user=user;
-        console.log("Bienvenido Usuario"+user.nombre);
+        process.env.USER_NAME=user.nombre;
+        console.log("Bienvenido Usuario "+user.nombre);
 
         next();
     } catch (error) {

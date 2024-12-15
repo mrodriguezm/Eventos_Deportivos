@@ -3,12 +3,12 @@ const mongoose=require("mongoose");
 const Schema = mongoose.Schema;
 
 const eventSchema= new Schema({
-    nombre:{type:String,require:true},
-    descripcion:{type:Text, require:true},
-    fecha:{type:Date, require:true},
-    ubicacion:{type:String, require:true},
-    tipoDeporte:{type:String, require:true},
-    organizador:{type:String, require:true}
+    nombre:{type:String,required:true},
+    descripcion:{type:String, required:true},
+    fecha:{type:Date, required:true},
+    ubicacion:{type:String, required:true},
+    tipoDeporte:{type:String, required:true},
+    organizador:{type:String, required:true}
 },{
     collection:'events',
     timestamps:true
